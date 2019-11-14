@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>博客剪彩</title>
+    <url>/2019/11/14/%E5%8D%9A%E5%AE%A2%E5%89%AA%E5%BD%A9/</url>
+    <content><![CDATA[<p><em>hexo两天时间终于搭建完毕啦，期待在此站与你记录并共享知识！11/14/2019 4:19:48 PM</em></p>
+<h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><h2 id="必备软件安装"><a href="#必备软件安装" class="headerlink" title="必备软件安装"></a>必备软件安装</h2><p>安装hexo之前必须安装下面版本软件版本越高越好</p>
+<blockquote>
+<p>Node.js<br>Git</p>
+</blockquote>
+<h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><p>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。打开GitGUI输入下面命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。(xo文件夹已经提前建立)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init D:\xo</span><br><span class="line">$ cd D:\xo</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; ├── _config.yml</span><br><span class="line">&gt; ├── package.json</span><br><span class="line">&gt; ├── scaffolds</span><br><span class="line">&gt; ├── source</span><br><span class="line">&gt; |   ├── _drafts</span><br><span class="line">&gt; |   └── _posts</span><br><span class="line">&gt; └── themes</span><br></pre></td></tr></table></figure>
+<h2 id="本地建立站点"><a href="#本地建立站点" class="headerlink" title="本地建立站点"></a>本地建立站点</h2><p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。[folder]提前在xo文件夹内新建了一个blog文件夹</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<h2 id="新建文章标题"><a href="#新建文章标题" class="headerlink" title="新建文章标题"></a>新建文章标题</h2><p>新建一个文章标题文件（其实\source_posts复制mb文件也可以，后面熟了就懂了）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo new &quot;post title with whitespace&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h2><p>默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h2 id="密匙"><a href="#密匙" class="headerlink" title="密匙"></a>密匙</h2><p>检查本地是否有 SSH key</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br><span class="line">$ ls</span><br></pre></td></tr></table></figure>
+<p>如果 SSH key 存在，就会显示 id_rsa、id_rsa.pub、know_hosts 三个文件 。没有也没关系，下面我们就来创建 SSH key</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br></pre></td></tr></table></figure>
+<p> notoped打开.pub文件内容全部复制填写到github设置中的SSH</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub&quot;</span><br></pre></td></tr></table></figure>
+<p>验证安装是否成功,出现hi则成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="部署本地文件到Github"><a href="#部署本地文件到Github" class="headerlink" title="部署本地文件到Github"></a>部署本地文件到Github</h2><p> config.yml文件结尾部分加入(xxx你的用户名)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:yangshuo89031281/yangshuo89031281.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>首次需要部署用户名密码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br><span class="line">$ git config --global user.email &quot;你的github绑定的email@163.com&quot;</span><br><span class="line">$ git config --global user.name &quot;你的ID&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="上传网站到github"><a href="#上传网站到github" class="headerlink" title="上传网站到github"></a>上传网站到github</h2><p>生产html后上传</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+</search>
