@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>win7下UCurl安装20191117</title>
+    <url>/2019/11/17/win7%E4%B8%8BUCurl%E5%AE%89%E8%A3%8520191117/</url>
+    <content><![CDATA[<h1 id="Curl介绍"><a href="#Curl介绍" class="headerlink" title="Curl介绍"></a>Curl介绍</h1><p>cURL 是一个利用 URL 语法在命令行下工作的文件传输工具。借助 cURL，使用 REST API 、基本认证进行存储管理，包括列目录、文件上下传、目录创建删除、文件删除等。</p>
+<h1 id="Curl安装"><a href="#Curl安装" class="headerlink" title="Curl安装"></a>Curl安装</h1><p>CURL安装方式有多种，配置环境变量和文件直接拷贝比较常见。这里只介绍最简单直接的一种，直接拷贝。</p>
+<p>下载后将压缩包解压到C，如图：</p>
+<p><img src="http://tingbianshui.test.upcdn.net/other/curlp1.png" alt="c"></p>
+<p>进入curl7653目录，找到红框位置C:\curl-7.65.3\src文件进入，复制curl.exe</p>
+<p><img src="http://tingbianshui.test.upcdn.net/other/u2.png" alt="c"></p>
+<p><img src="http://tingbianshui.test.upcdn.net/other/u3.png" alt="c"></p>
+<p>将curl.exe拷贝到C:\Windows\System32</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>测试curl命令，cmd输入命令 curl –help<br>出现如图英文提示表示安装成功！</p>
+<p><img src="http://tingbianshui.test.upcdn.net/other/c4.png" alt="cmd命令"></p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>我是2019年11月17日在官网下载的最新版本，已经上传到了百度云。提取码 835c</p>
+<p><a href="https://pan.baidu.com/s/1tCSd6wxRP1aT2EvalVcR7Q" target="_blank" rel="noopener">curl-7.65.3下载</a></p>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><p>使用方式二：<br>放置在system32中<br>解压下载好的文件，拷贝I386/curl.exe文件到C:\Windows\System32<br>然后就可以在DOS窗口中任意位置，使用curl命令了。</p>
+<p>使用方式三：<br>配置环境变量<br>在系统高级环境变量中，配置<br>CURL_HOME —– “你的curl目录位置\curl-7.43.0”<br>path —- 末尾添加 “;%CURL_HOME%\I386”<br>这样与上面方式二的效果相同。</p>
+]]></content>
+      <categories>
+        <category>互联网</category>
+      </categories>
+      <tags>
+        <tag>curl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo百度收录链接提交站点地图方法</title>
     <url>/2019/11/16/hexo%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h2 id="1-创建站点地图文件"><a href="#1-创建站点地图文件" class="headerlink" title="1.创建站点地图文件"></a>1.创建站点地图文件</h2><p>站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。</p>
