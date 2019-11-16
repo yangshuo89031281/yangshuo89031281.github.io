@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo百度收录链接提交站点地图方法</title>
+    <url>/2019/11/16/hexo%E7%99%BE%E5%BA%A6%E6%94%B6%E5%BD%95%E9%93%BE%E6%8E%A5%E6%8F%90%E4%BA%A4%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9B%BE%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h2 id="1-创建站点地图文件"><a href="#1-创建站点地图文件" class="headerlink" title="1.创建站点地图文件"></a>1.创建站点地图文件</h2><p>站点地图是一种文件，您可以通过该文件列出您网站上的网页，从而将您网站内容的组织架构告知Google和其他搜索引擎。搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取您的网站。</p>
+<ul>
+<li>先安装一下，打开你的hexo博客根目录，分别用下面两个命令来安装针对谷歌和百度的插件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在博客目录的_config.yml中添加如下代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Plugins:</span><br><span class="line">- hexo-generator-baidu-sitemap</span><br><span class="line">- hexo-generator-sitemap</span><br><span class="line"></span><br><span class="line">baidusitemap:</span><br><span class="line">    path: baidusitemap.xml</span><br><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
+
+<p>在你的博客根目录的public下面发现生成了sitemap.xml以及baidusitemap.xml就表示成功了</p>
+<h2 id="3-让百度收录我们的博客"><a href="#3-让百度收录我们的博客" class="headerlink" title="3.让百度收录我们的博客"></a>3.让百度收录我们的博客</h2><p><strong>验证网站</strong></p>
+<ul>
+<li>为什么要验证网站<br>站长平台推荐站长添加主站（您网站的链接也许会使用www 和非 www 两种网址，建议添加用户能够真实访问到的网址），添加并验证后，可证明您是该域名的拥有者，可以快捷批量添加子站点，查看所有子站数据，无需再一一验证您的子站点。</li>
+<li>如何验证网站<br>首先如果您的网站已使用了百度统计，您可以使用统计账号登录平台，或者绑定站长平台与百度统计账号，站长平台支持您批量导入百度统计中的站点，您不需要再对网站进行验证。<br>百度站长平台为未使用百度统计的站点提供三种验证方式：文件验证、html标签验证、CNAME验证。</li>
+</ul>
+<p>验证完成后，将会认为您是网站的拥有者。为使您的网站一直保持验证通过的状态，请保留验证的文件、html标签或CNAME记录，会去定期检查验证记录。</p>
+<p>这里演示<a href="https://link.jianshu.com?t=http://zhanzhang.baidu.com/dashboard/index" target="_blank" rel="noopener">百度站长平台</a><br>输入你的网址</p>
+<p><img src="//upload-images.jianshu.io/upload_images/1909817-34f53888bec50c70.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1162/format/webp" alt="image"></p>
+<p>这里推荐使用文件验证。下载文件放到Hexo\public目录下即可</p>
+<p><img src="//upload-images.jianshu.io/upload_images/1909817-82acbe5dfc0583b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="image"></p>
+<p><strong>链接提交</strong><br>上面步骤成功后，进入站点管理，选择<strong>网页抓取</strong>——<strong>链接提交</strong></p>
+<p>这里推荐自动推送和sitemap<br>从效率上来说：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">主动推送&gt;自动推送&gt;sitemap</span><br></pre></td></tr></table></figure>
+
+<p><strong>自动推送</strong><br>自动推送很简单，就是在你代码里面嵌入自动推送JS代码，在页面被访问时，页面URL将立即被推送给百度<br>复制代码到下面目录文件里就好添加到下面就行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\themes\xxxx\layout\_partial\after_footer.ejs</span><br></pre></td></tr></table></figure>
+<p>主题不一样文件名可能不同但是都有footer.ejs，header也可以</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(function()&#123;</span><br><span class="line">    var bp = document.createElement(&apos;script&apos;);</span><br><span class="line">    var curProtocol = window.location.protocol.split(&apos;:&apos;)[0];</span><br><span class="line">    if (curProtocol === &apos;https&apos;) &#123;</span><br><span class="line">        bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    var s = document.getElementsByTagName(&quot;script&quot;)[0];</span><br><span class="line">    s.parentNode.insertBefore(bp, s);</span><br><span class="line">&#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="//upload-images.jianshu.io/upload_images/1909817-0295e3925005b38c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="image"></p>
+<p><strong>sitemap提交</strong><br>直接提交就行</p>
+<p><img src="//upload-images.jianshu.io/upload_images/1909817-ee58ef116e38b174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="image"></p>
+<p>如何选择链接提交方式<br>1、主动推送：最为快速的提交方式，推荐您将站点当天新产出链接立即通过此方式推送给百度，以保证新链接可以及时被百度收录。<br>2、自动推送：最为便捷的提交方式，请将自动推送的JS代码部署在站点的每一个页面源代码中，部署代码的页面在每次被浏览时，链接会被自动推送给百度。可以与主动推送配合使用。<br>3、sitemap：您可以定期将网站链接放到sitemap中，然后将sitemap提交给百度。百度会周期性的抓取检查您提交的sitemap，对其中的链接进行处理，但收录速度慢于主动推送。<br>4、手动提交：一次性提交链接给百度，可以使用此种方式。</p>
+<h2 id="4-谷歌收录我们的博客"><a href="#4-谷歌收录我们的博客" class="headerlink" title="4.谷歌收录我们的博客"></a>4.谷歌收录我们的博客</h2><p>谷歌操作比较简单，就是向<a href="https://link.jianshu.com?t=https://www.google.com/webmasters/tools" target="_blank" rel="noopener">Google站长工具</a>提交sitemap<br>登录Google账号，添加了站点验证通过后，选择站点，之后在<strong>抓取</strong>——<strong>站点地图</strong>——<strong>添加/测试站点地图</strong>，如下图：</p>
+<p><img src="//upload-images.jianshu.io/upload_images/1909817-f050cdb33a196bca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="image"></p>
+<p>谷歌我提交立马就能搜索到我的博客了，效率很高。</p>
+]]></content>
+      <categories>
+        <category>-互联网</category>
+      </categories>
+      <tags>
+        <tag>-站点</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>原生家庭20190511</title>
     <url>/2019/11/16/%E5%8E%9F%E7%94%9F%E5%AE%B6%E5%BA%AD20190511/</url>
     <content><![CDATA[<p>附录：<br>测一测你的父母是不是问题父母<br>音视频中樊老师提到测试父母是否为问题父母，我们将它们输出为文档内容供各位书友参考，点击上方蓝字即可查看。</p>
