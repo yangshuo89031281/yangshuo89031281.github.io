@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>curl上传图片到服务器并自动获得图片外链</title>
+    <url>/2019/11/17/curlUpPic/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@echo off </span><br><span class="line">set /p a=请输入本地桌面图片完整名：</span><br><span class="line">set /p c=请输入远程存放图片的文件夹名：</span><br><span class="line">set b=C:\Users\Administrator\Desktop\%a%</span><br><span class="line">echo 图片完整地址是 %b%</span><br><span class="line">curl -T %b% http://v0.api.upyun.com/tingbianshui/%c%/ -u yangshuo1281:密码 -v</span><br><span class="line">set d=http://tingbianshui.test.upcdn.net/%c%/%a%</span><br><span class="line">ECHO 上传完成，图片外链地址是: %d%</span><br><span class="line">pause</span><br><span class="line">echo %d%&gt;picurl.txt</span><br><span class="line">start notepad picurl.txt</span><br></pre></td></tr></table></figure>
+
+<p>c1PN3D2EbGtRfJf密码请在后台生产获取B5otqUWSiQu976m1d</p>
+<p>@echo off<br>set /p a=请输入本地桌面图片完整名：<br>set /p c=请输入远程存放图片的文件夹名：<br>set b=C:\Users\Administrator\Desktop%a%<br>echo 图片完整地址是 %b%<br>curl -T %b% <a href="http://v0.api.upyun.com/tingbianshui/%c%/" target="_blank" rel="noopener">http://v0.api.upyun.com/tingbianshui/%c%/</a> -u yangshuo1281:密码 -v<br>set d=<a href="http://tingbianshui.test.upcdn.net/%c%/%a%" target="_blank" rel="noopener">http://tingbianshui.test.upcdn.net/%c%/%a%</a><br>ECHO 上传完成，图片外链地址是: %d%<br>pause</p>
+<p>echo %d%&gt;picurl.txt</p>
+<blockquote>
+<p>将得到的外链写入.bat所在目录的picurl.txt<br>start notepad picurl.txt<br>自动打开picurl.txt方便复制</p>
+</blockquote>
+<p><a href="https://pan.baidu.com/s/1piQvz8AsIcOjqK97wes8Pg" target="_blank" rel="noopener">bat下载地址</a></p>
+]]></content>
+      <categories>
+        <category>互联网</category>
+      </categories>
+      <tags>
+        <tag>curl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>win7下UCurl安装20191117</title>
     <url>/2019/11/17/win7%E4%B8%8BUCurl%E5%AE%89%E8%A3%8520191117/</url>
     <content><![CDATA[<h1 id="Curl介绍"><a href="#Curl介绍" class="headerlink" title="Curl介绍"></a>Curl介绍</h1><p>cURL 是一个利用 URL 语法在命令行下工作的文件传输工具。借助 cURL，使用 REST API 、基本认证进行存储管理，包括列目录、文件上下传、目录创建删除、文件删除等。</p>
